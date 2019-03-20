@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+
+    <EditText
+        android:id="@+id/createCircle_edt"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:background="@drawable/fraghome_selector"
+        android:layout_margin="20dp"
+        android:hint="  请在此写下你此刻的心情"
+        android:drawableTop="@drawable/a4"
+        android:drawableLeft="@drawable/a4"
+        android:gravity="start"
+        android:textSize="15sp"
+        />
+
+    <ImageView
+        android:id="@+id/createCircle_imagebtn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/camera_selector"
+        android:layout_marginLeft="20dp"/>
+
+    <Button
+        android:id="@+id/createCircle_btnBiao"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:text="发表"
+        android:textColor="#fff"
+        android:background="@drawable/payment_button_shape"
+        android:layout_marginTop="20dp"
+        android:layout_margin="20dp"/>
+</LinearLayout>

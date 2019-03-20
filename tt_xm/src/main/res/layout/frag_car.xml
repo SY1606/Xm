@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recy_car"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:layout_marginTop="20dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <CheckBox
+            android:id="@+id/all"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/frag_shop_checkbox_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_toRightOf="@id/all"
+            android:gravity="center"
+            android:text="全选"
+            android:textSize="@dimen/sp_12" />
+
+        <TextView
+            android:id="@+id/frag_shop_text_total"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/frag_shop_checkbox_name"
+            android:gravity="center"
+            android:text="合计"
+            android:textSize="@dimen/sp_16" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/frag_shop_text_total"
+            android:gravity="center"
+            android:text="￥0.00"
+            android:textColor="#f00"
+            android:textSize="@dimen/sp_16" />
+
+        <Button
+            android:id="@+id/frag_shop_btn_total"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="#ff5e70"
+            android:text="去结算"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/sp_16" />
+    </RelativeLayout>
+
+</LinearLayout>

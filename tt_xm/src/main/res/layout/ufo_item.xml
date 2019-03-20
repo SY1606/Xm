@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/selector_list"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/tou_image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                app:placeholderImage="@mipmap/ic_launcher_round" />
+
+            <TextView
+                android:id="@+id/ufo_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="40dp"
+                android:text="adgsdgsg" />
+
+            <TextView
+                android:id="@+id/ufo_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="40dp"
+                android:text="adgsdgsg" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/ufo_em"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="adgsdgsdg"
+            android:layout_marginTop="120dp"
+            />
+
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/ufo_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:placeholderImage="@mipmap/ic_launcher_round"
+            android:layout_marginTop="150dp"
+            android:layout_marginLeft="60dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <com.ldoublem.thumbUplib.ThumbUpView
+                android:id="@+id/zan"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="320dp"
+                android:layout_marginLeft="280dp"
+                />
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="1"
+                android:textSize="25sp"
+                android:layout_marginTop="320dp"
+                />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

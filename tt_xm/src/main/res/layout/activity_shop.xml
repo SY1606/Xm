@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.ShopActivity">
+
+    <FrameLayout
+        android:id="@+id/frag"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/di"
+        android:orientation="horizontal">
+
+
+        <RadioButton
+            android:id="@+id/homes"
+            android:layout_width="5dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/home"
+            android:drawableTop="@drawable/sel_home"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/ufo"
+            android:layout_width="5dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ufo"
+            android:drawableTop="@drawable/sel_ufo"
+            android:textSize="16sp" />
+        <RadioButton
+            android:id="@+id/car"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+
+            android:layout_marginTop="1dp"
+            android:layout_gravity="center"
+            android:src="@drawable/car"
+            android:drawableTop="@drawable/sel_car"
+            android:textSize="16sp" />
+        <RadioButton
+            android:id="@+id/book"
+            android:layout_width="5dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="10dp"
+            android:src="@drawable/book"
+            android:layout_marginTop="10dp"
+            android:drawableTop="@drawable/sel_book"
+            android:textSize="16sp" />
+        <RadioButton
+            android:id="@+id/my"
+            android:layout_width="5dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/people"
+            android:drawableTop="@drawable/sel_people"
+            android:textSize="16sp" />
+    </RadioGroup>
+
+</LinearLayout>
