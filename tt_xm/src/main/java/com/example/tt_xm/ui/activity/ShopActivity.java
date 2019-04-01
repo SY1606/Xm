@@ -4,7 +4,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.tt_xm.R;
 import com.example.tt_xm.ui.frag.Frag_book;
@@ -14,7 +16,7 @@ import com.example.tt_xm.ui.frag.Frag_my;
 import com.example.tt_xm.ui.frag.Frag_ufo;
 
 public class ShopActivity extends AppCompatActivity {
-
+    private long firstTime=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,5 +65,25 @@ public class ShopActivity extends AppCompatActivity {
             }
 
         });
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+
+        switch (keyCode){
+            case KeyEvent.KEYCODE_BACK:
+                long secondTime=System.currentTimeMillis();
+                if(secondTime-firstTime>2000){
+                    Toast.makeText(ShopActivity.this,"再按一次退出程序--->onKeyUp",Toast.LENGTH_SHORT).show();
+                    firstTime=secondTime;
+                    return true;
+                }else{
+                    System.exit(0);
+                }
+                break;
+        }
+
+        return super.onKeyUp(keyCode, event);
+
     }
 }

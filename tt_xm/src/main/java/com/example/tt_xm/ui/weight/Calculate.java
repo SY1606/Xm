@@ -22,6 +22,8 @@ public class Calculate extends LinearLayout implements View.OnClickListener {
         btn_jian = view.findViewById(R.id.btn_jian);
         tv_number = view.findViewById(R.id.tv_number);
         btn_add = view.findViewById(R.id.btn_add);
+        btn_add.setOnClickListener(this);
+        btn_jian.setOnClickListener(this);
     }
 
     @Override

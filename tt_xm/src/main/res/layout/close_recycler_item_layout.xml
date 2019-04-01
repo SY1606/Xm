@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_margin="@dimen/dp_10"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/order_all_item_shape">
+        <ImageView
+            android:id="@+id/close_image"
+            android:layout_marginTop="15dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/ic_launcher"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/close_tvname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="测试"/>
+            <TextView
+                android:id="@+id/close_tvprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textColor="#ff0400"
+                android:text="测试"/>
+
+            <com.example.tt_xm.ui.weight.Calculate
+                android:id="@+id/settlement_calcuator"
+                android:layout_width="120dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginBottom="10dp"
+                android:layout_height="50dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

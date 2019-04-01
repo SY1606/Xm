@@ -7,6 +7,8 @@
     android:orientation="vertical"
     tools:context=".ui.activity.SearchActivity">
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,7 +24,7 @@
 
         <EditText
             android:id="@+id/eDit_name"
-            android:layout_width="200dp"
+            android:layout_width="300dp"
             android:layout_height="35dp"
             android:background="@drawable/selector_sou"
             android:hint="请输入内容...."
@@ -41,6 +43,143 @@
             android:background="@drawable/sousuo"
             />
     </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="20dp"
+        android:textSize="20sp"
+        android:textColor="#0f0"
+        android:gravity="center"
+       android:layout_gravity="center"
+        android:text="热门搜索"/>
+    <com.example.tt_xm.ui.weight.FlowLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginLeft="20dp"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="apple"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="iphone"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="华为"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="童装"
+            android:textSize="15sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="手表"
+            android:textSize="15sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="空调"
+            android:textSize="15sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="床垫"
+            android:textSize="15sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="瓷砖"
+            android:textSize="15sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="热水器"
+            android:textSize="15sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="电视"
+            android:textSize="15sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="保温杯"
+            android:textSize="15sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="自行车"
+            android:textSize="15sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="油烟机"
+            android:textSize="15sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="智能家具"
+            android:textSize="15sp" />
+    </com.example.tt_xm.ui.weight.FlowLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="20dp"
+        android:textSize="20sp"
+        android:textColor="#0f0"
+        android:gravity="center"
+        android:text="搜索记录"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <com.example.tt_xm.ui.weight.FlowLayout
+            android:id="@+id/flow_history_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            >
+            <ImageView
+                android:id="@+id/delete"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/delete"
+                android:onClick="onClick"
+                />
+
+        </com.example.tt_xm.ui.weight.FlowLayout>
+
+    </LinearLayout>
+
+
+
     <ImageView
         android:id="@+id/image_shibai"
         android:visibility="gone"
@@ -65,7 +204,7 @@
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:id="@+id/smart"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerview"

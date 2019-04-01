@@ -1,5 +1,6 @@
 package com.example.tt_xm.di.presenter;
 
+import com.example.tt_xm.data.bean.Details;
 import com.example.tt_xm.di.contract.DetailContract;
 import com.example.tt_xm.di.model.DetailsModel;
 
@@ -26,12 +27,14 @@ public class DetailPresenter implements DetailContract.DetailsPresenter<DetailCo
     }
 
     @Override
-    public void requestData(int cid) {
-        detailsModel.containData(cid, new DetailContract.DetailsModel.CallBack() {
+    public void requestData(int comid, int userId, String sessionId) {
+        detailsModel.containData(comid, userId, sessionId, new DetailContract.DetailsModel.CallBack() {
             @Override
             public void onCallBack(String message) {
                 detailsView.showData(message);
             }
         });
     }
+
+
 }

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:background="@drawable/show_style"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp">
+
+    <TextView
+        android:layout_margin="@dimen/dp_10"
+        android:id="@+id/item_my_circle_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp_12"
+        android:textColor="#666666"
+        android:text="dsadsadsadsadasdsadsadsa"/>
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/item_my_circle_sdv"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center"/>
+    <RelativeLayout
+        android:layout_margin="@dimen/dp_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/item_my_circle_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_12"
+            android:textColor="#666666"
+            android:text="2018"/>
+
+        <TextView
+            android:id="@+id/item_my_circle_text_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:textSize="12sp"
+            android:textColor="#666666"
+            android:layout_marginRight="14dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+        <ImageView
+            android:id="@+id/item_my_circle_img_prise"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/ic_launcher_round"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="45dp"/>
+    </RelativeLayout>
+
+
+</LinearLayout>

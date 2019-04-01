@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/dp_10"
+    android:background="@drawable/show_style"
+    android:orientation="vertical">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/item_my_tracks_img"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:placeholderImage="@mipmap/ic_launcher_round"
+        app:placeholderImageScaleType="fitCenter"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/item_my_tracks_text_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="ssss" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <TextView
+            android:id="@+id/item_my_tracks_text_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="￥830"
+            android:textColor="#f00" />
+
+        <TextView
+            android:id="@+id/item_my_tracks_text_look"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="已浏览5次" />
+
+        <TextView
+            android:id="@+id/item_my_tracks_text_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/item_my_tracks_text_look"
+            android:layout_marginTop="10dp"
+            android:text="2018-11-12" />
+    </RelativeLayout>
+
+
+</LinearLayout>

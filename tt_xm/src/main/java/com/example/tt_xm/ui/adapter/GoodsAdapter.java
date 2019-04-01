@@ -24,12 +24,6 @@ public class GoodsAdapter extends BaseQuickAdapter<Goods.ResultBean.RxxpBean.Com
         SimpleDraweeView simpleDraweeView = helper.getView(R.id.image1);
         simpleDraweeView.setImageURI(item.getMasterPic());
 
-        helper.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(mContext,item.getCommodityId()+"",Toast.LENGTH_SHORT).show();
 
-            }
-        });
     }
 }

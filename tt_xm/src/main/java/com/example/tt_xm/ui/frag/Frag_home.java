@@ -2,6 +2,9 @@ package com.example.tt_xm.ui.frag;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,6 +18,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -22,6 +28,8 @@ import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.example.tt_xm.R;
 import com.example.tt_xm.data.bean.Banner;
 import com.example.tt_xm.data.bean.Goods;
+import com.example.tt_xm.data.net.ScreenUtil;
+import com.example.tt_xm.data.net.StatusBarUtil;
 import com.example.tt_xm.di.contract.BannerContract;
 import com.example.tt_xm.di.contract.GoodsContract;
 import com.example.tt_xm.di.presenter.BannerPresenter;
@@ -38,7 +46,6 @@ import com.zhouwei.mzbanner.holder.MZHolderCreator;
 import com.zhouwei.mzbanner.holder.MZViewHolder;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,10 +54,6 @@ import butterknife.Unbinder;
 public class Frag_home extends Fragment implements GoodsContract.GoodView,BannerContract.BannerView {
     @BindView(R.id.cai)
     ImageView cai;
-    @BindView(R.id.edit_sou)
-    EditText editSou;
-    @BindView(R.id.text_sou)
-    Button textSou;
     @BindView(R.id.banner)
     MZBannerView mzBannerView;
     @BindView(R.id.re)
@@ -67,12 +70,28 @@ public class Frag_home extends Fragment implements GoodsContract.GoodView,Banner
     private GoodsContract.GoodPresenter goodPresenter;
     private RecyclerView recy2;
     private BannerContract.BannerPresenter bannerPresenter;
-
+    private ImageView sou;
+    private LinearLayout homeTopSouLy;
+    private  Intent intent;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_home, container, false);
+        sou = view.findViewById(R.id.sou);
+        //ScreenUtil.resetDensity(getActivity());
+        homeTopSouLy = view.findViewById(R.id.homeTopSouLy);
+        //沉浸式状态栏
+        StatusBarUtil.setRootViewFitsSystemWindows(getActivity(),true);
+        StatusBarUtil.setTranslucentStatus(getActivity());
+        if (!StatusBarUtil.setStatusBarDarkTheme(getActivity(), true)) {
+            //如果不支持设置深色风格 为了兼容总不能让状态栏白白的看不清, 于是设置一个状态栏颜色为半透明,
+            //这样半透明+白=灰, 状态栏的文字能看得清
+            StatusBarUtil.setStatusBarColor(getActivity(),0x55000000);
+        }
+
+        //绑定控件
         unbinder = ButterKnife.bind(this, view);
+        //初始化Fresrc
         Fresco.initialize(getActivity());
         recy2 = view.findViewById(R.id.recy2);
 
@@ -87,7 +106,7 @@ public class Frag_home extends Fragment implements GoodsContract.GoodView,Banner
         goodPresenter.requestDatas();
 
         //点击搜索框跳转到查询页面
-        editSou.setOnClickListener(new View.OnClickListener() {
+        sou.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(),SearchActivity.class);
@@ -95,7 +114,61 @@ public class Frag_home extends Fragment implements GoodsContract.GoodView,Banner
             }
         });
 
+        //菜单栏
+        cai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //获取布局
+                View toppop = View.inflate(getActivity(), R.layout.pop_item, null);
+
+                PopupWindow popupWindow = new PopupWindow(toppop,
+                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT, true);
+
+                //在此pop的区域 外点击关闭此窗口
+                popupWindow.setOutsideTouchable(true);
+
+                //设置一个空背景
+                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), 100);
+                popupWindow.setBackgroundDrawable(new BitmapDrawable(getResources(), bitmap));
+                popupWindow.showAsDropDown(homeTopSouLy);
+
+                //点击搜索详细信息
+                TextView pop_sou_man = toppop.findViewById(R.id.pop_sou_man);
+                TextView pop_sou_woman = toppop.findViewById(R.id.pop_sou_woman);
+                TextView pop_sou_women_xie = toppop.findViewById(R.id.pop_sou_women_xie);
+
+                pop_sou_man.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        intent.putExtra("requestcod","1");
+                        intent.putExtra("goods","男装");
+                        startActivity(intent);
+                    }
+                });
+
+                pop_sou_woman.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        intent.putExtra("requestcod","1");
+                        intent.putExtra("goods","女装");
+                        startActivity(intent);
+                    }
+                });
+
+                pop_sou_women_xie.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        intent.putExtra("requestcod","1");
+                        intent.putExtra("goods","女鞋");
+                        startActivity(intent);
+                    }
+                });
+            }
+        });
+
         return view;
+
     }
 
     @Override

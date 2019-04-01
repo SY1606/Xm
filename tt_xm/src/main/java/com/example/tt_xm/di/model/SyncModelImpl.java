@@ -4,8 +4,11 @@ import android.util.Log;
 
 import com.example.tt_xm.data.ApiService;
 import com.example.tt_xm.data.Constant;
-import com.example.tt_xm.data.bean.Sync;
+import com.example.tt_xm.data.app.MyApp;
+import com.example.tt_xm.data.app.UserBean;
 import com.example.tt_xm.di.contract.SyncContract;
+import com.example.tt_xm.greenDao.DaoSession;
+import com.example.tt_xm.greenDao.UserBeanDao;
 
 import java.util.List;
 
@@ -20,18 +23,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SyncModelImpl implements SyncContract.SyncModel {
 
-    int userid;
-    String sessionId;
-
     @Override
     public void containLoginData(int commodityId1, int count, final CallBack callBack) {
 
-        /*final MyApp myApp = new MyApp();
+        final MyApp myApp = new MyApp();
         DaoSession daoSession = myApp.getDaoSession();
         UserBeanDao userBeanDao = daoSession.getUserBeanDao();
         List<UserBean> users = userBeanDao.loadAll();
         int size = users.size();
-        UserBean userBean = users.get(size-1);*/
+        UserBean userBean = users.get(size-1);
 
 
 //        String shop ="[{\"commodityId\":"+ppid+",\"count\":"+5+"}]";
@@ -47,7 +47,7 @@ public class SyncModelImpl implements SyncContract.SyncModel {
 
         ApiService apiService = retrofit.create(ApiService.class);
 
-        Observable<ResponseBody> observable = apiService.getSyncContent(syncBody);
+        Observable<ResponseBody> observable = apiService.getSyncContent(userBean.getUserId(),userBean.getSessionId(),syncBody);
         observable
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

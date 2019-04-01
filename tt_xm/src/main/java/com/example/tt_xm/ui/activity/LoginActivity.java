@@ -16,9 +16,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tt_xm.R;
+import com.example.tt_xm.data.app.MyApp;
 import com.example.tt_xm.data.bean.Login;
+import com.example.tt_xm.data.app.UserBean;
+import com.example.tt_xm.data.net.ScreenUtil;
+import com.example.tt_xm.data.net.StatusBarUtil;
 import com.example.tt_xm.di.contract.LoginContract;
 import com.example.tt_xm.di.presenter.LoginPresenter;
+import com.example.tt_xm.greenDao.DaoSession;
 import com.google.gson.Gson;
 
 import butterknife.BindView;
@@ -49,6 +54,16 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        //ScreenUtil.resetDensity(LoginActivity.this);
+
+        //沉浸式状态栏
+        StatusBarUtil.setRootViewFitsSystemWindows(LoginActivity.this,true);
+        StatusBarUtil.setTranslucentStatus(LoginActivity.this);
+        if (!StatusBarUtil.setStatusBarDarkTheme(LoginActivity.this, true)) {
+            StatusBarUtil.setStatusBarColor(LoginActivity.this,0x55000000);
+        }
+
+        //绑定控件
         ButterKnife.bind(this);
         loginPresenter = new LoginPresenter();
         loginPresenter.attachView(this);
@@ -91,6 +106,14 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
 
             }
         });
+
+        zhuce.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this,RegisActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     //解析登录
@@ -107,13 +130,24 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
                     Intent intent = new Intent(LoginActivity.this,ShopActivity.class);
                     startActivity(intent);
 
-                    int userId = login.getResult().getUserId();
-                    String sessionId = login.getResult().getSessionId();
+                    //int userId = login.getResult().getUserId();
+                    //String sessionId = login.getResult().getSessionId();
 
-                    SharedPreferences.Editor editor = sp.edit();
-                    editor.putInt("id",userId);
-                    editor.putString("session",sessionId);
-                    editor.commit();
+                    MyApp myApp = new MyApp();
+                    DaoSession daoSession = myApp.getDaoSession();
+                    UserBean userBean = new UserBean();
+
+                    String sessionId = login.getResult().getSessionId();
+                    int userId = login.getResult().getUserId();
+
+                    userBean.setSessionId(sessionId);
+                    userBean.setUserId(userId);
+                    daoSession.insert(userBean);
+
+                    SharedPreferences.Editor edit = sp.edit();
+                    edit.putInt("userId", userId);
+                    edit.putString("sessionId", sessionId);
+                    edit.commit();
                 }
             }
         });

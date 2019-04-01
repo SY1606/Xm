@@ -4,7 +4,13 @@ import android.util.Log;
 
 import com.example.tt_xm.data.ApiService;
 import com.example.tt_xm.data.Constant;
+import com.example.tt_xm.data.app.MyApp;
+import com.example.tt_xm.data.app.UserBean;
 import com.example.tt_xm.di.contract.ShopCarContract;
+import com.example.tt_xm.greenDao.DaoSession;
+import com.example.tt_xm.greenDao.UserBeanDao;
+
+import java.util.List;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -18,12 +24,20 @@ public class ShopCarModel implements ShopCarContract.ShopCarModel {
 
     @Override
     public void containData(final ShopCarContract.CallBack callBack) {
+
+        final MyApp myApp = new MyApp();
+        DaoSession daoSession = myApp.getDaoSession();
+        UserBeanDao userBeanDao = daoSession.getUserBeanDao();
+        List<UserBean> users = userBeanDao.loadAll();
+        int size = users.size();
+        UserBean userBean = users.get(size-1);
+
         Retrofit retrofit = new Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .baseUrl(Constant.ShopCar)
                 .build();
         ApiService apiService = retrofit.create(ApiService.class);
-        Observable<ResponseBody> observable = apiService.getShopCarContent();
+        Observable<ResponseBody> observable = apiService.getShopCarContent(userBean.getUserId(),userBean.getSessionId());
         observable
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

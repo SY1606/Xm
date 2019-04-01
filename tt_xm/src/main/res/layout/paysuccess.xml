@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:background="#821D1515"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/success" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="60dp"
+            android:text="支付成功"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/bt_main_view"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/payment_button_shape"
+            android:text="返回主页"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/bt_all_view"
+            android:layout_width="100dp"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/payment_examine_shape"
+            android:text="查看订单"
+            android:textColor="#ff5f71"
+            android:textSize="@dimen/sp_14" />
+    </LinearLayout>
+</LinearLayout>

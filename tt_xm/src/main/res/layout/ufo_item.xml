@@ -67,12 +67,14 @@
             android:orientation="horizontal"
             >
 
-            <com.ldoublem.thumbUplib.ThumbUpView
+            <CheckBox
                 android:id="@+id/zan"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="320dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="310dp"
                 android:layout_marginLeft="280dp"
+                android:background="@drawable/zan1"
+                android:button="@null"
                 />
 
             <TextView
@@ -82,7 +84,7 @@
                 android:padding="5dp"
                 android:text="1"
                 android:textSize="25sp"
-                android:layout_marginTop="320dp"
+                android:layout_marginTop="310dp"
                 />
 
         </LinearLayout>

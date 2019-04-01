@@ -8,7 +8,7 @@ import org.greenrobot.greendao.database.Database;
 import org.greenrobot.greendao.identityscope.IdentityScopeType;
 import org.greenrobot.greendao.internal.DaoConfig;
 
-import com.example.tt_xm.data.net.UserBean;
+import com.example.tt_xm.data.app.UserBean;
 
 import com.example.tt_xm.greenDao.UserBeanDao;
 

@@ -1,11 +1,12 @@
 package com.example.tt_xm.data.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class ShopCar {
 
     /**
-     * result : [{"commodityId":114,"commodityName":"羽博 可悬挂无线蓝牙便携音响 布面工艺方形户外超重低音蓝牙音响车载手机迷你蓝牙音箱","count":3,"pic":"http://172.17.8.100/images/small/commodity/sjsm/yyyl/1/1.jpg","price":49}]
+     * result : [{"commodityId":19,"commodityName":"环球 时尚拼色街拍百搭小白鞋 韩版原宿ulzzang板鞋 女休闲鞋","count":3,"pic":"http://172.17.8.100/images/small/commodity/nx/bx/2/1.jpg","price":78}]
      * message : 查询成功
      * status : 0000
      */
@@ -38,13 +39,13 @@ public class ShopCar {
         this.result = result;
     }
 
-    public static class ResultBean {
+    public static class ResultBean implements Serializable {
         /**
-         * commodityId : 114
-         * commodityName : 羽博 可悬挂无线蓝牙便携音响 布面工艺方形户外超重低音蓝牙音响车载手机迷你蓝牙音箱
+         * commodityId : 19
+         * commodityName : 环球 时尚拼色街拍百搭小白鞋 韩版原宿ulzzang板鞋 女休闲鞋
          * count : 3
-         * pic : http://172.17.8.100/images/small/commodity/sjsm/yyyl/1/1.jpg
-         * price : 49
+         * pic : http://172.17.8.100/images/small/commodity/nx/bx/2/1.jpg
+         * price : 78
          */
 
         private int commodityId;
@@ -52,6 +53,44 @@ public class ShopCar {
         private int count;
         private String pic;
         private int price;
+        private boolean FatherChecked;
+        private int defoultNumber = 1;
+
+        public ResultBean(int defoultNumber) {
+            this.defoultNumber = defoultNumber;
+        }
+
+        public int getDefoultNumber() {
+            return defoultNumber;
+        }
+
+        public void setDefoultNumber(int defoultNumber) {
+            this.defoultNumber = defoultNumber;
+        }
+        public ResultBean(boolean fatherChecked, boolean childChdecked) {
+            FatherChecked = fatherChecked;
+
+        }
+
+        public boolean getFatherChecked() {
+            return FatherChecked;
+        }
+
+        public void setFatherChecked(boolean fatherChecked) {
+            FatherChecked = fatherChecked;
+        }
+
+        public ResultBean(int commodityId, String commodityName, String pic, int price, int count, boolean FatherChecked,int defoultNumber) {
+            this.commodityId = commodityId;
+            this.commodityName = commodityName;
+            this.pic = pic;
+            this.price = price;
+            this.count = count;
+            this.FatherChecked = FatherChecked;
+            this.defoultNumber =defoultNumber;
+        }
+
+
 
         public int getCommodityId() {
             return commodityId;

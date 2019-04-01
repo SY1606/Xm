@@ -6,12 +6,11 @@
     <ImageView
         android:id="@+id/banner_image"
         android:layout_width="match_parent"
-        android:layout_height="230dp"
+        android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
-        android:src="@mipmap/ic_launcher_round"
+
         />
 
 </LinearLayout>

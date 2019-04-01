@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/homeTopSouLy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -19,23 +20,16 @@
             android:layout_marginTop="5dp"
             android:src="@drawable/cai"
             />
-        <EditText
-            android:id="@+id/edit_sou"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="5dp"
-            android:background="@drawable/search_edit_bg"
-            />
 
-        <Button
-            android:id="@+id/text_sou"
+
+        <ImageView
+            android:id="@+id/sou"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:text="搜索"
             android:layout_marginTop="8dp"
-            android:background="#fff"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="310dp"
+            android:src="@drawable/sousuo"
             />
     </LinearLayout>
 
@@ -52,20 +46,18 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         >
 
         <com.zhouwei.mzbanner.MZBannerView
             android:id="@+id/banner"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="20dp"
             app:open_mz_mode="true"
+            app:middle_page_cover="false"
             app:canLoop="true"
-            app:indicatorAlign="center"
-            app:indicatorPaddingLeft="10dp"
+            app:indicatorAlign="center"/>
 
-            />
 
     </LinearLayout>
 
